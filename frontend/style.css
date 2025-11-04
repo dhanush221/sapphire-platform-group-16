@@ -2213,3 +2213,59 @@ select.form-control {
 .task-mini-time { color: var(--color-text-secondary); font-size: var(--font-size-sm); }
 .task-mini-empty { color: var(--color-text-secondary); font-style: italic; }
 
+/* Category badge styling for tasks */
+.category-badge { display:inline-block; padding:2px 8px; border-radius: var(--radius-full); font-size: var(--font-size-sm); line-height: 1.6; background: var(--color-secondary); color: var(--color-text); border: 1px solid var(--color-border); }
+.category-badge.cat-meetings { background: rgba(var(--color-teal-500-rgb), 0.15); color: var(--color-primary); border-color: rgba(var(--color-teal-500-rgb), 0.35); }
+.category-badge.cat-learning { background: rgba(230, 129, 97, 0.15); color: var(--color-orange-500); border-color: rgba(var(--color-orange-500-rgb, 168, 75, 47), 0.35); }
+.category-badge.cat-project, .category-badge.cat-project-work { background: rgba(192, 21, 47, 0.12); color: var(--color-red-500); border-color: rgba(var(--color-red-500-rgb), 0.35); }
+/* --- Neurodivergent-friendly Kanban styling (reference layout) --- */
+.kanban-board { display:grid; grid-template-columns: repeat(3, minmax(280px,1fr)); gap: 28px; }
+.kanban-column { background: rgba(var(--color-brown-600-rgb), 0.18); border-radius: 16px; padding: 22px; box-shadow: var(--shadow-sm); }
+.kanban-column h3 { margin: 0 0 12px; font-size: 28px; letter-spacing: 0.2px; }
+.kanban-column__body { display:flex; flex-direction:column; gap: 16px; min-height: 420px; padding-top: 12px; }
+
+.task-card { background: #11161b; border-radius: 14px; padding: 16px; border: 1px solid rgba(var(--color-brown-600-rgb), 0.28); box-shadow: var(--shadow-sm); }
+.task-card .task-title { font-weight: var(--font-weight-semibold); font-size: 18px; color: var(--color-text); }
+.task-card .task-meta { color: var(--color-text-secondary); margin-top: 6px; }
+.task-card .task-actions { display:flex; gap: 10px; margin-top: 10px; }
+.task-card .task-actions .btn-edit, .task-card .task-actions .btn-delete { background: #192129; border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); width: 36px; height: 36px; border-radius: 10px; display:flex; align-items:center; justify-content:center; }
+.task-card .task-actions .btn-delete { color: var(--color-error); border-color: rgba(var(--color-red-500-rgb), 0.25); }
+
+/* Left accent edge based on priority */
+.task-card.priority-high { border-left: 6px solid var(--color-red-500); }
+.task-card.priority-medium { border-left: 6px solid var(--color-primary); }
+.task-card.priority-low { border-left: 6px solid rgba(var(--color-teal-300-rgb, 50,184,198),1); }
+
+/* Full-width checklist button */
+.task-card .btn.btn--outline.btn--sm { width: 100%; background:#121a20; border:1px solid rgba(255,255,255,0.08); color: var(--color-text); }
+
+/* Thicker progress bar for readability */
+.task-card .progress-bar { height: 8px; background:#222c34; border-radius: 999px; overflow:hidden; margin-top: 8px; }
+.task-card .progress-fill { background: var(--color-primary); height: 8px; border-radius: 999px; transition: width var(--duration-normal) var(--ease-standard); }
+
+/* Category badge tones */
+.category-badge { display:inline-block; padding:4px 10px; border-radius: 999px; font-size: 12px; line-height: 1; background: rgba(148,163,184,0.12); color: var(--color-text); border: 1px solid rgba(148,163,184,0.25); }
+.category-badge.cat-meetings { background: rgba(var(--color-teal-500-rgb), 0.15); color: var(--color-primary); border-color: rgba(var(--color-teal-500-rgb), 0.35); }
+.category-badge.cat-learning { background: rgba(230,129,97,0.15); color: var(--color-orange-500); border-color: rgba(230,129,97,0.35); }
+.category-badge.cat-project, .category-badge.cat-project-work { background: rgba(192,21,47,0.15); color: var(--color-red-500); border-color: rgba(192,21,47,0.35); }
+
+/* List view progress (thick bar like reference) */
+.task-list .task-progress .progress-bar { height: 8px; background:#222c34; border-radius:999px; }
+.task-list .task-progress .progress-fill { height: 8px; background: var(--color-primary); border-radius:999px; transition: width var(--duration-normal) var(--ease-standard); }
+
+/* Subtasks micro-animations */
+.subtask-row span { transition: color var(--duration-fast) var(--ease-standard), text-decoration-color var(--duration-fast) var(--ease-standard); }
+.subtask-row input:checked + span { color: var(--color-text-secondary); text-decoration: line-through; }
+
+/* Subtask delete button */
+.btn-st-delete { background: transparent; border: 1px solid rgba(255,255,255,0.08); color: var(--color-error); border-radius: 8px; padding: 4px 8px; }
+.btn-st-delete:hover { background: rgba(var(--color-red-500-rgb), 0.08); }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .nav-links { flex-wrap: wrap; gap: 6px; }
+  .kanban-board { display: block; }
+  .kanban-column { width: 100%; margin-bottom: 12px; }
+  .dashboard-grid, .deadline-grid, .resources-grid, .settings-grid { grid-template-columns: 1fr !important; }
+}
+
